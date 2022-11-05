@@ -1,0 +1,15 @@
+name = "mcchangelog"
+main = "src/index.ts"
+compatibility_date = "2022-11-03"
+
+kv_namespaces = [
+  { binding = "KV_NAMESPACE", id = "8ae84b2b25f4487a950054028aa8e8c0" }
+]
+
+# [triggers]
+# crons = [ "* * * * *" ]
+
+[vars]
+BOT_AVATAR = "https://theme.zdassets.com/theme_assets/2155033/bc270c23058d513de5124ffea6bf9199af7a2370.png"
+BOT_USERNAME = "Sprunkles Replacement"
+GENERAL_CHANNEL_ID = "1038125101993971773"
