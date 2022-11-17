@@ -115,40 +115,40 @@ export async function get_articles(
           }
 
           if (new_thread) {
-            // const discord_response = await fetch(
-            //   WEBHOOK_URL,
-            //   {
-            //     method: "POST",
-            //     redirect: "manual",
-            //     headers: {
-            //       "content-type": "application/json",
-            //     },
-            //     body: JSON.stringify({
-            //       "username": username,
-            //       "avatar_url": avatar,
-            //       "thread_name": title,
-            //       "content": article.html_url,
-            //     }),
-            //   },
-            // );
+            const discord_response = await fetch(
+              WEBHOOK_URL,
+              {
+                method: "POST",
+                redirect: "manual",
+                headers: {
+                  "content-type": "application/json",
+                },
+                body: JSON.stringify({
+                  "username": username,
+                  "avatar_url": avatar,
+                  "thread_name": title,
+                  "content": article.html_url,
+                }),
+              },
+            );
           } else {
-            // const discord_response = await fetch(
-            //   WEBHOOK_URL + "?thread_id=" + GENERAL_CHANNEL_ID,
-            //   {
-            //     method: "POST",
-            //     redirect: "manual",
-            //     headers: {
-            //       "content-type": "application/json",
-            //     },
-            //     body: JSON.stringify({
-            //       "username": username,
-            //       "avatar_url": avatar,
-            //       "content": "**A new hotfix has been released - " + title +
-            //         "**\n This will not have a dedicated thread.\n" +
-            //         article.html_url,
-            //     }),
-            //   },
-            // );
+            const discord_response = await fetch(
+              WEBHOOK_URL + "?thread_id=" + GENERAL_CHANNEL_ID,
+              {
+                method: "POST",
+                redirect: "manual",
+                headers: {
+                  "content-type": "application/json",
+                },
+                body: JSON.stringify({
+                  "username": username,
+                  "avatar_url": avatar,
+                  "content": "**A new hotfix has been released - " + title +
+                    "**\n This will not have a dedicated thread.\n" +
+                    article.html_url,
+                }),
+              },
+            );
           }
         }
       }
