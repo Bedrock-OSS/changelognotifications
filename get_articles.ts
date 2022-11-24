@@ -36,11 +36,16 @@ export async function get_articles(
             "from",
             article.updated_at.toString(),
           );
+
+          console.log(1);
+
           localStorage.setItem(
             article.id.toString(),
             article.updated_at.toString(),
           );
+          console.log(2);
           localStorage.setItem(article.id + "-name", article.name);
+          console.log(3);
 
           if (article.name.includes("Java")) {
             console.log(
@@ -61,6 +66,8 @@ export async function get_articles(
           let title = article.name;
 
           let new_thread = true;
+
+          console.log(4);
 
           if (extracted_name) {
             switch (extracted_name.length) {
@@ -112,7 +119,10 @@ export async function get_articles(
             }
           }
 
+          console.log(5);
+
           if (new_thread) {
+            console.log(6);
             const discord_response = await fetch(
               WEBHOOK_URL,
               {
@@ -130,12 +140,16 @@ export async function get_articles(
               },
             );
 
+            console.log(7);
+
             if (discord_response.status != 200) {
               console.error("Post wasn't made, trying again next time");
               console.debug("Resp: " + await discord_response.json());
               localStorage.removeItem(article.id.toString());
             }
           } else {
+            console.log(8);
+
             const discord_response = await fetch(
               WEBHOOK_URL + "?thread_id=" + GENERAL_CHANNEL_ID,
               {
@@ -153,6 +167,8 @@ export async function get_articles(
                 }),
               },
             );
+
+            console.log(9);
 
             if (discord_response.status != 200) {
               console.error("Post wasn't made, trying again next time");
