@@ -9,8 +9,6 @@ export async function get_articles(
     const articles_response = await fetch(
       articles_url,
       {
-        signal: AbortSignal.timeout(1000),
-
         method: "GET",
         redirect: "manual",
         headers: {
@@ -118,8 +116,6 @@ export async function get_articles(
             const discord_response = await fetch(
               WEBHOOK_URL,
               {
-                signal: AbortSignal.timeout(1000),
-
                 method: "POST",
                 redirect: "manual",
                 headers: {
@@ -143,8 +139,6 @@ export async function get_articles(
             const discord_response = await fetch(
               WEBHOOK_URL + "?thread_id=" + GENERAL_CHANNEL_ID,
               {
-                signal: AbortSignal.timeout(1000),
-
                 method: "POST",
                 redirect: "manual",
                 headers: {
