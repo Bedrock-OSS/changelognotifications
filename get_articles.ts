@@ -9,7 +9,7 @@ export async function get_articles(
     const articles_response = await fetch(
       articles_url,
       {
-        signal: AbortSignal.timeout(500),
+        signal: AbortSignal.timeout(1000),
 
         method: "GET",
         redirect: "manual",
