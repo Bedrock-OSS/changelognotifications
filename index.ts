@@ -9,6 +9,9 @@ const GENERAL_CHANNEL_ID = configData["GENERAL_CHANNEL_ID"];
 const BOT_USERNAME = configData["BOT_USERNAME"];
 const BOT_AVATAR = configData["BOT_AVATAR"];
 
+console.log("Webhook URL: " + WEBHOOK_URL);
+console.log("General channel: " + GENERAL_CHANNEL_ID);
+
 export { BOT_AVATAR, BOT_USERNAME, GENERAL_CHANNEL_ID, WEBHOOK_URL };
 
 export enum ChannelType {
