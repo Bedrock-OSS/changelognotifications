@@ -131,6 +131,12 @@ export async function get_articles(
                 }),
               },
             );
+
+            if (discord_response.status != 200) {
+              console.error("Post wasn't made, trying again next time");
+              console.debug("Resp: " + await discord_response.json());
+              localStorage.removeItem(article.id.toString());
+            }
           } else {
             const discord_response = await fetch(
               WEBHOOK_URL + "?thread_id=" + GENERAL_CHANNEL_ID,
@@ -149,6 +155,12 @@ export async function get_articles(
                 }),
               },
             );
+
+            if (discord_response.status != 200) {
+              console.error("Post wasn't made, trying again next time");
+              console.debug("Resp: " + await discord_response.json());
+              localStorage.removeItem(article.id.toString());
+            }
           }
         }
       }
