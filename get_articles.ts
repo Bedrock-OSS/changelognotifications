@@ -122,7 +122,7 @@ export async function get_articles(
           console.log(5);
 
           if (new_thread) {
-            console.log(6);
+            console.log(6 + " - " + WEBHOOK_URL);
             const discord_response = await fetch(
               WEBHOOK_URL,
               {
