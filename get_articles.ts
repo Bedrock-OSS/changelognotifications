@@ -127,7 +127,7 @@ export async function get_articles(
               WEBHOOK_URL,
               {
                 method: "POST",
-                redirect: "manual",
+                // redirect: "manual",
                 headers: {
                   "content-type": "application/json",
                 },
