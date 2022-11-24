@@ -25,7 +25,7 @@ export async function get_articles(
       const articles = await articles_response.json() as ArticlesResponse;
 
       for (const article of articles.articles) {
-        const last_updated = await localStorage.getItem(article.id.toString());
+        const last_updated = localStorage.getItem(article.id.toString());
 
         if (last_updated) {
           if (last_updated != article.updated_at.toString()) {
@@ -89,7 +89,7 @@ export async function get_articles(
                   "Problem with article name",
                   article.name,
                   "[" + extracted_name + "] - [" + extracted_name.length + "]" +
-                    " - " + channel_type,
+                  " - " + channel_type,
                 );
                 break;
               }
@@ -159,6 +159,8 @@ export async function get_articles(
   } catch (e) {
     if (e instanceof TypeError) {
       console.error("Unable to make fetch request:", e.message);
+    } else {
+      console.error("Unable to make fetch request: ", e);
     }
   }
 }
